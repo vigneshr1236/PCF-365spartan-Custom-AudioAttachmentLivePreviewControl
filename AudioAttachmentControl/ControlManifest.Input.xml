@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="PCFControls" constructor="AudioAttachmentControl" version="0.0.57" preview-image ="img/audioattachmentlogo.png" display-name-key="365spartan_AudioAttachmentControl" description-key="Use this control to add audio files with live preview" control-type="standard">
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type="SingleLine.Text" usage="bound" required="false" />
+    <!-- 
+      Property node's of-type attribute can be of-type-group attribute. 
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+       <css path="css/dropzone.css" order="1" />
+       <css path="css/audioplayer.css" order="1" />
+       <img path="uploadIcon.png" />
+       <img path="img/audioattachmentlogo.png" />
+       <css path="../node_modules/toastr/build/toastr.min.css" order="1"/>
+       
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/AudioAttachmentControl.css" order="1" />
+      <resx path="strings/AudioAttachmentControl.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+   
+  </control>
+</manifest>

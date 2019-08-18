@@ -1,0 +1,44 @@
+body {
+    height: 100%;
+    color: rgb(100, 108, 127);
+    line-height: 1.4rem;
+    font-family: Roboto, "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+h1 { text-align: center; }
+
+.dropzone {
+    background: #f3f3f3;
+    border-radius: 5px;
+    border: 2px dashed rgb(181, 188, 193, 1);
+    border-image: none;
+    max-width: 406px;
+    height: 195px;
+    text-align: center;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.input-hidden{
+display: none;
+}
+
+
+.uploadImgHower{
+    margin-top: 29px;
+    height: 113px;
+    transform: scale(1.1); 
+}
+
+.uploadImgHowerOut{
+    height: 113px;
+    margin-top: 29px;
+}
+
+.audioPlayerClose{
+height: 31px;
+margin-bottom: -5px;
+}

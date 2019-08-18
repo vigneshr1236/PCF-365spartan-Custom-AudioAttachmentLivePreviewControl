@@ -1,0 +1,2 @@
+F:\Practice\CRM\PCF\AudioAttachmentComponent\obj\Debug\AudioAttachmentComponent.pcfprojResolveAssemblyReference.cache
+F:\Practice\CRM\PCF\AudioAttachmentComponent\obj\Debug\AudioAttachmentComponent.pcfproj.CoreCompileInputs.cache
