@@ -1,4 +1,4 @@
-body {
+.PCFControls\.AudioAttachmentControl .text-font {
     height: 100%;
     color: rgb(100, 108, 127);
     line-height: 1.4rem;
@@ -8,9 +8,7 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-h1 { text-align: center; }
-
-.dropzone {
+.PCFControls\.AudioAttachmentControl .dropzone {
     background: #f3f3f3;
     border-radius: 5px;
     border: 2px dashed rgb(181, 188, 193, 1);
@@ -22,23 +20,22 @@ h1 { text-align: center; }
     margin-right: auto; */
 }
 
-.input-hidden{
+/* .PCFControls\.AudioAttachmentControl .input-hidden{
 display: none;
-}
+} */
 
-
-.uploadImgHower{
+.PCFControls\.AudioAttachmentControl .uploadImgHower{
     margin-top: 29px;
     height: 113px;
     transform: scale(1.1); 
 }
 
-.uploadImgHowerOut{
+.PCFControls\.AudioAttachmentControl .uploadImgHowerOut{
     height: 113px;
     margin-top: 29px;
 }
 
-.audioPlayerClose{
+.PCFControls\.AudioAttachmentControl .audioPlayerClose{
 height: 31px;
 margin-bottom: -5px;
 }
