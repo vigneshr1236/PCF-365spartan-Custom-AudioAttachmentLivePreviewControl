@@ -46,7 +46,7 @@ export class AudioAttachmentControl implements ComponentFramework.StandardContro
 	private _audioPlayer: HTMLAudioElement;
 	private _audioPlayerCloseImg: HTMLImageElement;
 
-	private _value: number = 0;
+	//private _value: number = 0;
 
 	/**
 	 * Empty constructor.
@@ -141,7 +141,6 @@ export class AudioAttachmentControl implements ComponentFramework.StandardContro
 				reader.onload = function (event: any) {
 					let fileContent = event.target.result;
 					let notesEntity = new AttachedFile("", fileName, mimeType, fileContent, fileSize);
-					thisRef.addAudioControl(notesEntity);
 					thisRef.addAttachments(notesEntity);
 				};
 				reader.readAsDataURL(file);
@@ -154,12 +153,13 @@ export class AudioAttachmentControl implements ComponentFramework.StandardContro
 	}
 
 	addAudioControl(audioFile: AttachedFile) {
-		this._value++;
+		// this._value++;
 		this._labelAudio = document.createElement("label");
+		this._labelAudio.className = "text-font";
 		this._labelAudio.innerHTML = audioFile.fileName;
 
 		this._audioPlayer = document.createElement("audio");
-		this._audioPlayer.id = "audiofiles_" + this._value;
+		this._audioPlayer.id = "audiofiles_" + audioFile.annotationId;
 		this._audioPlayer.controls = true;
 		this._audioPlayer.setAttribute("controlslist", "nodownload");
 		this._audioPlayer.src = audioFile.fileContent;
@@ -167,10 +167,10 @@ export class AudioAttachmentControl implements ComponentFramework.StandardContro
 		this._audioPlayerCloseImg = document.createElement("img");
 		this._audioPlayerCloseImg.src = "https://cdn1.iconfinder.com/data/icons/travel-pack-filled-outlines-1/75/TRASH-512.png";
 		this._audioPlayerCloseImg.setAttribute("class", "audioPlayerClose");
-		this._audioPlayerCloseImg.addEventListener("click", this.audioPlayerClose.bind(this, "divAudioContainer_" + this._value))
+		this._audioPlayerCloseImg.addEventListener("click", this.audioPlayerClose.bind(this, "divAudioContainer_" + audioFile.annotationId))
 
 		var _divAudioContainer = document.createElement("div");
-		_divAudioContainer.id = "divAudioContainer_" + this._value;
+		_divAudioContainer.id = "divAudioContainer_" + audioFile.annotationId;
 
 		_divAudioContainer.appendChild(this._brElement.cloneNode());
 		_divAudioContainer.appendChild(this._labelAudio);
@@ -268,9 +268,10 @@ export class AudioAttachmentControl implements ComponentFramework.StandardContro
 
 					// Get the ID of the new record created
 					notesEntity["annotationId"] = response.id;
+					notesEntity["fileContent"] = file.fileContent;
 					notesEntity["fileName"] = notesEntity["filename"];
 					toastr.success("uploaded audio file successfully");
-					//thisRef.addAudioControl(notesEntity);
+					thisRef.addAudioControl(notesEntity);
 				},
 				function (errorResponse: any) {
 					// Error handling code here - record failed to be created
